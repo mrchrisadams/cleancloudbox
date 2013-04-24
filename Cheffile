@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'php'
+# used to provide a php-fpm LWRP
+cookbook 'php-fpm'
+
+cookbook 'nginx'
+
+cookbook 'git'
+cookbook 'ntp'
+cookbook 'postfix'
+cookbook 'vim'
+cookbook 'mysql'
+
+cookbook 'cleanclouds-wordpress',
+  :path => 'infra/site-cookbooks/cleanclouds-wordpress'

@@ -1,0 +1,6 @@
+cookbooks/
+tmp/
+.vagrant
+.vagrant*
+.DS_Store
+data_bags/
