@@ -1,0 +1,35 @@
+server {
+      server_name <%= @site_name %>;
+      root   <%= @root_path %>;
+      index  index.php;
+
+      location / {
+          # Try to serve any static files, then forward the request 'i.e. /foo' to index.php?q=foo
+           try_files $uri $uri/ /index.php?q=$uri&$args;
+      }
+      location ~ \.php$ {
+
+        include fastcgi_params;
+        fastcgi_index  index.php;
+        fastcgi_pass <%= @upstream_path %>;
+
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_intercept_errors on;
+      }
+
+       location = /favicon.ico {
+                log_not_found off;
+                access_log off;
+        }
+
+        location = /robots.txt {
+                allow all;
+                log_not_found off;
+                access_log off;
+        }
+
+        location ~* \.(js|css|png|jpg|jpeg|gif|ico)$ {
+                expires max;
+                log_not_found off;
+        }
+ }

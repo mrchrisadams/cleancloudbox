@@ -14,6 +14,7 @@ cookbook 'ntp'
 cookbook 'postfix'
 cookbook 'vim'
 cookbook 'mysql'
+cookbook 'zsh'
 
 cookbook 'cleanclouds-wordpress',
   :path => 'infra/site-cookbooks/cleanclouds-wordpress'

@@ -1,0 +1,5 @@
+# create an upstream php fcgi process to forward all php requests to
+
+upstream php {
+    server  <%= @upstream_path %>;
+}
