@@ -1,11 +1,14 @@
+include_recipe "mysql::server"
 
 include_recipe "php"
 include_recipe "php-fpm"
 
 include_recipe "nginx"
 
-include_recipe "mysql::server"
 
+# TODO extract these into a 'handy bits" recipe
+package "tree"
+package "ack"
 
 # Fetch wp-cli
 

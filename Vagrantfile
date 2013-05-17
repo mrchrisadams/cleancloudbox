@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network :forwarded_port, guest: 3306, host: 3306
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -33,6 +34,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["infra/cookbooks", "infra/site-cookbooks"]
     chef.roles_path = "infra/roles"
+    chef.data_bags_path = "infra/data_bags"
 
     chef.add_role "base"
     chef.add_role "wordpress"
